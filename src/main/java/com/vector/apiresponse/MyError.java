@@ -1,11 +1,17 @@
-package com.vector.dto;
+package com.vector.response;
 
 import javax.validation.constraints.NotBlank;
 
-/***
- * An error
- */
-public class Error {
+public class MyError {
+    public MyError(){
+
+    }
+
+    public MyError(@NotBlank(message = "code is required") String code, @NotBlank(message = "message is required") String message) {
+        this.code = code;
+        this.message = message;
+    }
+
     @NotBlank(message = "code is required")
     private String code;
 
