@@ -78,4 +78,12 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 '}';
     }
+
+    /**
+     * Create a data transport object
+     * @return com.vector.dto.User object
+     * */
+    public com.vector.dto.User createUserDto(){
+        return new com.vector.dto.User(this.email,this.password,this.firstName,this.lastName);
+    }
 }

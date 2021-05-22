@@ -114,7 +114,7 @@ public class UserControllerTest {
                 .header("Content-Type","application/json")
                 .content(json.toString());
         mockMvc.perform(request)
-                .andExpect(status().isOk());
+                .andExpect(status().isNoContent());
 
         json.put("password","");  //password null
         request = put("/user")

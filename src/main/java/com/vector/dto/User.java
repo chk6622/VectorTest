@@ -10,6 +10,17 @@ import javax.validation.constraints.Size;
  */
 public class User {
 
+    public User(){
+
+    }
+
+    public User(@NotBlank(message = "email is required") @Size(min = 1, max = 100) String email, @NotBlank(message = "password is required") @Size(min = 1, max = 100) String password, @Size(min = 1, max = 100) String firstName, @Size(min = 1, max = 100) String lastName) {
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     @NotBlank(message = "email is required")
     @Size(min=1,max=100)
     private String email;
@@ -64,5 +75,13 @@ public class User {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 '}';
+    }
+
+    /**
+     * Create a db model object
+     * @return a com.vector.model.User object
+     * */
+    public com.vector.model.User createUserModel(){
+        return new com.vector.model.User(this.email,this.password,this.firstName,this.lastName);
     }
 }

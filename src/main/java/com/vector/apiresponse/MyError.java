@@ -1,4 +1,4 @@
-package com.vector.response;
+package com.vector.apiresponse;
 
 import javax.validation.constraints.NotBlank;
 
@@ -12,8 +12,12 @@ public class MyError {
         this.message = message;
     }
 
+    public MyError(@NotBlank(message = "message is required") String message) {
+        this.message = message;
+    }
+
     @NotBlank(message = "code is required")
-    private String code;
+    private String code = "1000";
 
     @NotBlank(message = "message is required")
     private String message;
