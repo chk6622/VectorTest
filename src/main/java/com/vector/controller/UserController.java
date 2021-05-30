@@ -25,6 +25,7 @@ public class UserController {
      */
     @PostMapping("/user")
     public Object create(@RequestBody @Validated User userDto){
+        System.out.println("test");
         com.vector.model.User result = this.userRepository.findByEmail(userDto.getEmail());
         if(result == null){
             this.userRepository.save(userDto.createUserModel());
